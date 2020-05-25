@@ -57,6 +57,12 @@ $county_data = "1. Mombasa. – Hassan Ali Joho – ODM,
 
 // @TODO : Your code starts here
 
+/*
+EXTRA WORK DONE
+-Added  Kenya coat of arm to make the table look offical
+-Added a background color to the table 
+*/
+
 $array_county = explode(",",$county_data);
 
 $new_array = count($array_county);
@@ -64,11 +70,7 @@ $new_array = count($array_county);
 $remove = array("0", "1", "2", "3", "4", "5", "6", "7", "8", "9","."," ' ");
 
 //var_dump($remove);
-/*
-EXTRA WORK DONE
--Added a Kenya coat of arm to make the table look offical
--Added a background color to the table 
-*/
+
 
 ?>
 <!DOCTYPE html>
