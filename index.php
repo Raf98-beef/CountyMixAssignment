@@ -59,7 +59,7 @@ $county_data = "1. Mombasa. – Hassan Ali Joho – ODM,
 
 /*
 EXTRA WORK DONE
--Added  Kenya coat of arm to make the table look offical
+-Added  Kenya coat of arm to make the table look official
 -Added a background color to the table 
 */
 
