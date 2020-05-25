@@ -57,4 +57,124 @@ $county_data = "1. Mombasa. – Hassan Ali Joho – ODM,
 
 // @TODO : Your code starts here
 
+$array_county = explode(",",$county_data);
+
+$new_array = count($array_county);
+
+$remove = array("0", "1", "2", "3", "4", "5", "6", "7", "8", "9","."," ' ");
+
+//var_dump($remove);
+/*
+EXTRA WORK DONE
+-Added a Kenya coat of arm to make the table look offical
+-Added a background color to the table 
+*/
+
 ?>
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <title>County Information</title>
+	 <!-- Bulma CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+  </head>
+  <body>
+  <section class="section">
+    <div class="container is-widescreen">
+	<img width="5%" height="30%" src="images/coat.png">
+     <h1 class="title is-1 ">
+        County Details
+		
+      </h1>
+<table class="table ">
+
+
+  <thead>
+    <tr>
+
+      <th>#</th>
+      <th>Name</th>
+      <th>GOVERNOR</th>
+      <th>WEBSITE</th>
+    </tr>
+  </thead>
+  <tbody>
+  <?php 
+    $y=1; 
+    for($a = 0; $a < $new_array; $a++) {?>
+      <?php $datasplit = explode(" – ",$array_county[$a]);
+      $serious = count($datasplit);?>
+    <tr class="is-selected">
+      <td><?php echo $y++?></th>
+      <td>
+	   <?php 
+          $fleet = str_replace($remove, "", $datasplit[0]);
+          echo $fleet;?>
+	  </td>
+      <td>
+	  <?php 
+          if(!empty($datasplit[2])){ 
+            echo $datasplit[1],"-" , $datasplit[2]; 
+			echo "<br>";
+			
+			?>
+            
+        <?php }
+        else {
+           echo $datasplit[1];
+        }
+        ?>
+	  </td>
+	   <?php 
+       $fleet = str_replace($remove, "", $datasplit[0]);
+       $space= strtolower(str_replace(' ', '', $fleet));
+	   ?>
+      <td>
+	  http://<a  target="_BLANK" href= "http://<?php echo $space?>.go.ke"><?php echo $space;?>.go.ke</a>
+	  </td>
+	</tr>
+<?php 
+     }
+ ?>
+  </tbody>
+  <tfoot>
+     <tr>
+      <th>Jubilee</th>
+      <th>25</th>
+	 </tr>  
+	 <tr>
+      <th>ODM</th>
+      <th>14</th>
+	</tr>
+	<tr>
+      <th>CCM</th>
+      <th>1</th>
+	</tr>
+	<tr>
+      <th>Independent</th>
+      <th>2</th>
+	   </tr>
+	<tr>
+      <th>FORD Kenya</th>
+      <th>1</th>
+	</tr>
+    <tr>
+      <th>WDM K</th>
+      <th>2</th>
+	</tr>
+	<tr>
+      <th>Narc Kenya</th>
+      <th>1</th>
+	</tr>
+	<tr>
+      <th>Kanu</th>
+      <th>1</th>
+	</tr>
+  </tfoot>
+  </section>
+  </body>
+  
+</html>
+
