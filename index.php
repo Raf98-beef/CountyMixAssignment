@@ -57,12 +57,6 @@ $county_data = "1. Mombasa. – Hassan Ali Joho – ODM,
 
 // @TODO : Your code starts here
 
-/*
-EXTRA WORK DONE
--Added  Kenya coat of arm to make the table look official
--Added a background color to the table 
-*/
-
 $array_county = explode(",",$county_data);
 
 $new_array = count($array_county);
@@ -70,7 +64,12 @@ $new_array = count($array_county);
 $remove = array("0", "1", "2", "3", "4", "5", "6", "7", "8", "9","."," ' ");
 
 //var_dump($remove);
-
+/*
+EXTRA WORK DONE
+-Added a Kenya coat of arm to make the table look official
+-Added a background color to the table 
+-Used a different CSS
+*/
 
 ?>
 <!DOCTYPE html>
@@ -107,7 +106,10 @@ $remove = array("0", "1", "2", "3", "4", "5", "6", "7", "8", "9","."," ' ");
     $y=1; 
     for($a = 0; $a < $new_array; $a++) {?>
       <?php $datasplit = explode(" – ",$array_county[$a]);
-      $serious = count($datasplit);?>
+      $serious = count($datasplit);
+	  
+	  
+	  ?>
     <tr class="is-selected">
       <td><?php echo $y++?></th>
       <td>
@@ -137,42 +139,52 @@ $remove = array("0", "1", "2", "3", "4", "5", "6", "7", "8", "9","."," ' ");
 	  http://<a  target="_BLANK" href= "http://<?php echo $space?>.go.ke"><?php echo $space;?>.go.ke</a>
 	  </td>
 	</tr>
+	<?$Jubilee=substr_count($array_county,"Jubilee");
+	  $ODM=substr_count($array_county,"ODM");
+	  $CCM=substr_count($array_county,"CCM");
+	  $Independent=substr_count($array_county,"Independent");
+	  $FORD_Kenya=substr_count($array_county,"FORD Kenya");
+	  $WDM_K=substr_count($array_county,"WDM K");
+	  $Narc_Kenya=substr_count($array_county,"Narc Kenya");
+	  $Kanu=substr_count($array_county,"KANU");
+	  ?>
 <?php 
      }
  ?>
   </tbody>
+  <!--I had a challenged generating the analysis -->
   <tfoot>
      <tr>
       <th>Jubilee</th>
-      <th>25</th>
+      <th><?echo $Jubilee; ?></th>
 	 </tr>  
 	 <tr>
       <th>ODM</th>
-      <th>14</th>
+      <th><?echo $ODM; ?></th>
 	</tr>
 	<tr>
       <th>CCM</th>
-      <th>1</th>
+      <th><?echo $CCM; ?></th>
 	</tr>
 	<tr>
       <th>Independent</th>
-      <th>2</th>
+      <th><?echo $Independent; ?></th>
 	   </tr>
 	<tr>
       <th>FORD Kenya</th>
-      <th>1</th>
+      <th><?echo $FORD_Kenya; ?></th>
 	</tr>
     <tr>
       <th>WDM K</th>
-      <th>2</th>
+      <th><?echo $WDM_K; ?></th>
 	</tr>
 	<tr>
       <th>Narc Kenya</th>
-      <th>1</th>
+      <th><?echo $Narc_Kenya; ?></th>
 	</tr>
 	<tr>
       <th>Kanu</th>
-      <th>1</th>
+      <th><?echo $Kanu; ?></th>
 	</tr>
   </tfoot>
   </section>
